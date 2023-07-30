@@ -1,8 +1,10 @@
 
 package com.egg.biblioteca.controladores;
 
+import com.egg.biblioteca.entidades.Editorial;
 import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.servicios.EditorialServicio;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,5 +38,7 @@ public class EditorialControlador {
                
         return "index.html"; 
     }
+    
+    
     
 }

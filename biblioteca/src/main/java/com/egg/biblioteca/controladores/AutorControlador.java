@@ -1,8 +1,10 @@
 
 package com.egg.biblioteca.controladores;
 
+import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.excepciones.MiException;
 import com.egg.biblioteca.servicios.AutorServicio;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,6 +38,18 @@ public class AutorControlador {
             return "autor_form.html"; 
         }
                
-        return "autor_form.html"; 
+        return "index.html"; 
     }
+    
+    @GetMapping("/lista") //localhost:8080/autor/lista
+    public String listar(ModelMap modelo){
+        
+        List<Autor> autores = autorServicio.listarAutores();
+        
+        modelo.addAttribute("autores", autores);
+        
+        return "autor_list.html";
+    }
+    
+    
 }
