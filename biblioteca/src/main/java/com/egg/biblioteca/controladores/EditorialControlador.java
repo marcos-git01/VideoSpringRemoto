@@ -39,6 +39,14 @@ public class EditorialControlador {
         return "index.html"; 
     }
     
-    
+    @GetMapping("/lista") //localhost:8080/editorial/lista
+    public String listar(ModelMap modelo){
+        
+        List<Editorial> editoriales = editorialServicio.listarEditoriales();
+        
+        modelo.addAttribute("editoriales", editoriales);
+        
+        return "editorial_list.html";
+    }
     
 }
