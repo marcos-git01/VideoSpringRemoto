@@ -32,7 +32,7 @@ public class EditorialServicio {
         
     }
     
-    public List<Editorial> listarAutores() {
+    public List<Editorial> listarEditoriales() {
         
         List<Editorial> editoriales = new ArrayList();
         
