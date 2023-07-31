@@ -43,7 +43,9 @@ public class EditorialServicio {
     }
     
     @Transactional
-    public void modificarEditorial(String id, String nombre) {
+    public void modificarEditorial(String nombre, String id) throws MiException{
+        
+        validar(nombre, id);
         
         Optional<Editorial> respuesta = editorialRepositorio.findById(id);
         
@@ -58,16 +60,20 @@ public class EditorialServicio {
         }
     }
     
-    private void validar(String id, String nombre) throws MiException {
-        
-        if (id == null) {
-            throw new MiException("El idEditorial no puede ser nulo");
-        }
+    public Editorial getOne(String id) {
+        return editorialRepositorio.getOne(id);
+    }
+    
+    private void validar(String nombre, String id) throws MiException {
         
         if (nombre.isEmpty() || nombre == null) {
             throw new MiException("El nombre de la Editorial no puede ser nulo o estar vacio");
         }
-
+        
+        if (id == null) {
+            throw new MiException("El idEditorial no puede ser nulo");
+        }
+             
     }
     
 }

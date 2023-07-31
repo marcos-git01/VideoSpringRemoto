@@ -60,6 +60,11 @@ public class AutorServicio {
         }
     }
     
+    public Autor getOne(String id) {
+        return autorRepositorio.getOne(id);
+    }
+    
+    
     private void validar(String nombre, String id) throws MiException {
         
         if (nombre.isEmpty() || nombre == null) {
