@@ -83,6 +83,7 @@
                         <th scope="col">Autor</th>
                         <th scope="col">Editorial</th>
                         <th scope="col" sec:authorize="hasRole('ADMIN')" >Acciones</th>
+                        <th scope="col" sec:authorize="hasRole('ADMIN')" >Acciones</th>
                         
                     </tr>
                 </thead>
@@ -96,6 +97,9 @@
                         <td th:text="${libro.editorial.nombre}"></td>
                         <td>
                             <a sec:authorize="hasRole('ADMIN')" th:href= "@{/libro/modificar/__${libro.isbn}__}"><i class="fas fa-feather-alt"></i> Modificar </a>
+                        </td>
+                        <td>
+                            <a sec:authorize="hasRole('ADMIN')" th:href= "@{/libro/eliminar/__${libro.isbn}__}"><i class="fas fa-feather-alt"></i> Eliminar </a>
                         </td>
                     </tr>
 

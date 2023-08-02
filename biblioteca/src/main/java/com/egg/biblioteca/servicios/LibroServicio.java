@@ -107,6 +107,19 @@ public class LibroServicio {
         
     }
     
+    @Transactional
+    public void eliminarLibro(Long isbn) throws MiException {
+        
+        if (isbn == null) {
+            throw new MiException("El Isbn del libro no puede ser nulo o estar vacio");
+        }
+        Optional<Libro> respuesta = libroRepositorio.findById(isbn);
+
+        if (respuesta.isPresent()) {
+            libroRepositorio.delete(respuesta.get());
+        }
+    }
+    
     public Libro getOne(Long isbn) {
         return libroRepositorio.getOne(isbn);
     }

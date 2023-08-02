@@ -60,6 +60,20 @@ public class AutorServicio {
         }
     }
     
+    @Transactional
+    public void eliminarAutor(String id) throws MiException {
+        
+        if (id.isEmpty() || id == null) {
+            throw new MiException("El Id del Autor no puede ser nulo o estar vacio");
+        }
+        
+        Optional<Autor> respuesta = autorRepositorio.findById(id);
+
+        if (respuesta.isPresent()) {
+            autorRepositorio.delete(respuesta.get());
+        }
+    }
+    
     public Autor getOne(String id) {
         return autorRepositorio.getOne(id);
     }

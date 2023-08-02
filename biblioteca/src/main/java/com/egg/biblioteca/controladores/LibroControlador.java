@@ -111,7 +111,27 @@ public class LibroControlador {
             return "libro_modificar.html"; 
         }
                        
-    } 
+    }
+    
+    @GetMapping("/eliminar/{isbn}")
+    public String eliminar(@PathVariable Long isbn, ModelMap modelo) throws MiException {
+
+        modelo.put("libro", libroServicio.getOne(isbn));
+        try {
+
+            libroServicio.eliminarLibro(isbn);
+
+            return "redirect:../lista";
+
+        } catch (MiException ex) {
+
+            modelo.put("error", ex.getMessage());
+
+            //return "noticia_eliminar.html";
+            return "redirect:../lista";
+        }
+
+    }
     
     
 }

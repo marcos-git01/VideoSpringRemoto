@@ -60,6 +60,20 @@ public class EditorialServicio {
         }
     }
     
+    @Transactional
+    public void eliminarEditorial(String id) throws MiException {
+        
+        if (id.isEmpty() || id == null) {
+            throw new MiException("El Id de la Editorial no puede ser nulo o estar vacio");
+        }
+        
+        Optional<Editorial> respuesta = editorialRepositorio.findById(id);
+
+        if (respuesta.isPresent()) {
+            editorialRepositorio.delete(respuesta.get());
+        }
+    }
+    
     public Editorial getOne(String id) {
         return editorialRepositorio.getOne(id);
     }
