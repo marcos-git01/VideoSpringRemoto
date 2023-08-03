@@ -70,7 +70,7 @@ public class LibroControlador {
             return "libro_form.html"; //volvemos a cargar el formulario.
         }
                
-        return "index.html"; 
+        return "libro_form.html"; 
     }
     
     @GetMapping("/lista") //localhost:8080/libro/lista

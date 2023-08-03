@@ -37,7 +37,7 @@ public class EditorialControlador {
             return "editorial_form.html"; 
         }
                
-        return "index.html"; 
+        return "editorial_form.html"; 
     }
     
     @GetMapping("/lista") //localhost:8080/editorial/lista

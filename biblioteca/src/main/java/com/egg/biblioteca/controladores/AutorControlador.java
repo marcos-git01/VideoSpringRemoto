@@ -39,7 +39,7 @@ public class AutorControlador {
             return "autor_form.html"; 
         }
                
-        return "index.html"; 
+        return "autor_form.html"; 
     }
     
     @GetMapping("/lista") //localhost:8080/autor/lista
