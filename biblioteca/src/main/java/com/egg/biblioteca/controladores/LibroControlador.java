@@ -89,6 +89,12 @@ public class LibroControlador {
     public String modificar(@PathVariable Long isbn, ModelMap modelo){
         
         modelo.put("libro", libroServicio.getOne(isbn));
+        
+        List<Autor> autores = autorServicio.listarAutores();
+        List<Editorial> editoriales = editorialServicio.listarEditoriales();
+
+        modelo.addAttribute("autores", autores);
+        modelo.addAttribute("editoriales", editoriales);
       
         return "libro_modificar.html";
     }
@@ -97,6 +103,13 @@ public class LibroControlador {
     public String modificar(@PathVariable Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial, ModelMap modelo) {
         
         try {
+            
+            List<Autor> autores = autorServicio.listarAutores();
+            List<Editorial> editoriales = editorialServicio.listarEditoriales();
+
+            modelo.addAttribute("autores", autores);
+            modelo.addAttribute("editoriales", editoriales);
+            
             libroServicio.modificarLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
             
             //Ver esta linea si funciona?
